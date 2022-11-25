@@ -1,7 +1,5 @@
 package me.ele.uetool.base.item;
 
-import android.support.annotation.IntDef;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -10,6 +8,8 @@ import me.ele.uetool.base.Element;
 import static me.ele.uetool.base.item.SwitchItem.Type.TYPE_IS_BOLD;
 import static me.ele.uetool.base.item.SwitchItem.Type.TYPE_MOVE;
 import static me.ele.uetool.base.item.SwitchItem.Type.TYPE_SHOW_VALID_VIEWS;
+
+import androidx.annotation.IntDef;
 
 public class SwitchItem extends ElementItem {
 

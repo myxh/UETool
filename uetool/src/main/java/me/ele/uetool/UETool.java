@@ -9,6 +9,8 @@ import android.os.Build;
 import android.provider.Settings;
 import android.widget.Toast;
 
+import com.pitaya.mobile.uinspector.UInspector;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -60,6 +62,10 @@ public class UETool {
             }
         }
         return instance;
+    }
+
+    public static void register(Context context) {
+        UInspector.create(context);
     }
 
     public static void putFilterClass(Class clazz) {

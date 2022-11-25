@@ -97,6 +97,14 @@ public class UETMenu extends LinearLayout {
             }
         }));
 
+        subMenus.add(new UETSubMenu.SubMenu(resources.getString(R.string.uet_compose), R.drawable.uet_compose,
+                new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        open(TransparentActivity.Type.TYPE_COMPOSE);
+                    }
+                }));
+
         for (UETSubMenu.SubMenu subMenu : subMenus) {
             UETSubMenu uetSubMenu = new UETSubMenu(getContext());
             uetSubMenu.update(subMenu);

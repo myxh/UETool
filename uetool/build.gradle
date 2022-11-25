@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     compileSdkVersion versions.compileSdk
@@ -15,6 +15,8 @@ android {
 
 dependencies {
     compileOnly project(':uetool-base')
+    implementation project(':Uinspector')
+    implementation project(':Uinspector-optional-compose')
 //      api "me.ele:uetool-base:${versions.release}"
     implementation 'com.jakewharton.scalpel:scalpel:1.1.2'
     implementation ('com.github.bmelnychuk:atv:1.2.9') {

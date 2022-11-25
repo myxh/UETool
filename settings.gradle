@@ -1,1 +1,11 @@
 include ':app', ':uetool', ':uetool-no-op', ':uetool-fresco', ':uetool-base'
+include ':Uinspector'
+project(":Uinspector").projectDir = file("./impl")
+include ':Uinspector-api'
+project(":Uinspector-api").projectDir = file("./api")
+
+def optionalProjects = ['compose', 'autoinstall']
+optionalProjects.forEach { path ->
+    include ":Uinspector-optional-$path"
+    project(":Uinspector-optional-$path").projectDir = file("./optional/$path")
+}

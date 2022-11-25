@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/notification_title"
+        style="@style/TextAppearance.Compat.Notification.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/notification_btn"
+        android:layout_toStartOf="@+id/notification_btn"
+        android:layout_toLeftOf="@+id/notification_btn"
+        android:ellipsize="middle"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        tools:text="@tools:sample/lorem/random" />
+
+    <TextView
+        android:id="@+id/notification_info"
+        style="@style/TextAppearance.Compat.Notification.Info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/notification_title"
+        android:layout_alignBottom="@+id/notification_btn"
+        android:layout_toStartOf="@+id/notification_btn"
+        android:layout_toLeftOf="@+id/notification_btn"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        tools:text="@tools:sample/lorem/random" />
+
+    <ImageView
+        android:id="@+id/notification_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@string/uinspector_notification_channel_name"
+        android:src="@drawable/notification_start" />
+</RelativeLayout>

@@ -2,8 +2,6 @@ package me.ele.uetool;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.IntDef;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -16,6 +14,11 @@ import java.lang.annotation.RetentionPolicy;
 import static android.view.Gravity.BOTTOM;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 import static me.ele.uetool.TransparentActivity.Type.*;
+
+import androidx.annotation.IntDef;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.pitaya.mobile.uinspector.UInspector;
 
 public class TransparentActivity extends AppCompatActivity {
 
@@ -66,6 +69,10 @@ public class TransparentActivity extends AppCompatActivity {
                 vContainer.addView(new GriddingLayout(this));
                 board.updateInfo("LINE_INTERVAL: " + DimenUtil.px2dip(GriddingLayout.LINE_INTERVAL, true));
                 break;
+            case TYPE_COMPOSE:
+                UInspector.currentState.setRunning$UETool_Uinspector_api(!UInspector.currentState.isRunning());
+                UInspector.INSTANCE.syncState();
+                break;
             default:
                 Toast.makeText(this, getString(R.string.uet_coming_soon), Toast.LENGTH_SHORT).show();
                 finish();
@@ -109,6 +116,7 @@ public class TransparentActivity extends AppCompatActivity {
             TYPE_EDIT_ATTR,
             TYPE_SHOW_GRIDDING,
             TYPE_RELATIVE_POSITION,
+            TYPE_COMPOSE,
     })
     @Retention(RetentionPolicy.SOURCE)
     public @interface Type {
@@ -116,5 +124,6 @@ public class TransparentActivity extends AppCompatActivity {
         int TYPE_EDIT_ATTR = 1;
         int TYPE_SHOW_GRIDDING = 2;
         int TYPE_RELATIVE_POSITION = 3;
+        int TYPE_COMPOSE = 4;
     }
 }

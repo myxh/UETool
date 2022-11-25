@@ -1,38 +1,48 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.3.31'
+    ext.kotlin_version = '1.5.31'
+    ext.compose_version = "1.0.5"
 
-    ext.versions = ['minSdk'        : 14,
-                    'targetSdk'     : 28,
-                    'compileSdk'    : 28,
-                    'buildTool'     : '28.0.1',
+    ext.versions = ['minSdk'        : 21,
+                    'targetSdk'     : 31,
+                    'compileSdk'    : 31,
+                    'buildTool'     : '30.0.3',
 
-                    'supportLibrary': '27.1.1',
                     'fresco'        : '1.0.1',
 
                     'release'       : '1.3.0',]
     repositories {
-        jcenter()
-        mavenCentral()
+        maven { url 'https://nexus.dev.sheincorp.cn/repository/app_ds/' }
         google()
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
-        classpath 'me.ele:lancet-plugin:1.0.6'
+        classpath 'com.android.tools.build:gradle:7.0.3'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        classpath 'no.ele.asm:lancet-plugin:2.0.1'
+//        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
     }
 }
 
 allprojects {
     repositories {
-        jcenter()
-        mavenCentral()
+        maven { url 'https://nexus.dev.sheincorp.cn/repository/app_ds/' }
+        maven { url 'https://nexus.dev.sheincorp.cn/repository/app_snapshot/' }
         google()
-        maven { url 'https://jitpack.io' }
+        mavenCentral()
+        maven { url "https://maven.google.com" }
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/gradle-plugin' }
+        maven { url "https://jitpack.io" }
     }
 }
 
